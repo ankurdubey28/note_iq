@@ -1,0 +1,16 @@
+[project]
+name = "note-iq"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.117.1",
+    "inngest>=0.5.7",
+    "llama-index-core>=0.14.2",
+    "llama-index-readers-file>=0.5.4",
+    "openai>=1.109.1",
+    "python-dotenv>=1.1.1",
+    "qdrant-client>=1.15.1",
+    "streamlit>=1.50.0",
+    "uvicorn>=0.37.0",
+]
