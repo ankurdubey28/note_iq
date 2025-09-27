@@ -2,6 +2,8 @@
 
 ![NoteIQ Demo](image_placeholder.png)  
 <!-- Replace with your screenshot or GIF demonstrating the app in action -->
+<img width="1919" height="918" alt="image" src="https://github.com/user-attachments/assets/5cc4eeb7-1f16-4127-9021-58e36b0821fc" />
+
 
 **NoteIQ** is a student-friendly Retrieval-Augmented Generation (RAG) application that allows you to **upload PDFs, ingest them into a vector database, and query the content using an AI assistant**. Perfect for students, researchers, and professionals who need to quickly extract information from large documents.
 
