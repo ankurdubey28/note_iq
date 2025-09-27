@@ -15,8 +15,10 @@ load_dotenv()
 
 inngest_client=inngest.Inngest(
     app_id="rag_app",
+    event_key=os.getenv("Inngest_EVENT_KEY"),
+    signing_key=os.getenv("Inngest_SIGN_KEY"),
     logger=logging.getLogger("uvicorn"),
-    is_production=False,
+    is_production=True,
     serializer=inngest.PydanticSerializer()
 )
 
