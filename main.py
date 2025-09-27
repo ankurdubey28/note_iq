@@ -22,7 +22,13 @@ inngest_client=inngest.Inngest(
 
 @inngest_client.create_function(
     fn_id="RAG:Inngest PDF",
-    trigger=inngest.TriggerEvent(event="rag/inngest_pdf") # when this event is triggered , then the above inngest funciton is run
+    trigger=inngest.TriggerEvent(event="rag/inngest_pdf"), # when this event is triggered , then the above inngest funciton is run
+    rate_limit=inngest.RateLimit(
+    limit=1,
+        period=datetime.timedelta(hours=2),
+        key="event.rag.upload"
+
+)
 )
 async def rag_inngest_pdf(ctx:inngest.Context):
     def _load(ctx:inngest.Context)->RAGChunkAndSrc:
@@ -46,7 +52,12 @@ async def rag_inngest_pdf(ctx:inngest.Context):
 
 @inngest_client.create_function(
     fn_id="RAG:Query PDF",
-    trigger=inngest.TriggerEvent(event="rag/query_pdf_ai")
+    trigger=inngest.TriggerEvent(event="rag/query_pdf_ai"),
+    rate_limit=inngest.RateLimit(
+        limit=5,
+        period=datetime.timedelta(hours=1),
+        key="event.rag.query"
+    )
 )
 async def rag_query_pdf_ai(ctx:inngest.Context)->RAGSearchResults:
     def _search(query:str,top_k:int=5):
